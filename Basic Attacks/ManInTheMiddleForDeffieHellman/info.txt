@@ -1,0 +1,12 @@
+Diffie Hellman is a key exchange protocol which helps two computers generate a secure key, which makes the eavesdropper almost impossible to guess the secret key.
+However Diffie Hellman does not ensure authentication, this vulnerability can be exploited by launching the man in the middle attack. An eavesdropper can sit in the man in the middle position and intercept the messages between the two computers.
+
+In this example the host blue:4444 and blue:3333 implement Diffie Hellman protocol to exchange data. To intercept the communication between the two hosts man in the middle attack should be launched.
+The following are the steps to launch the attack.
+1.	The Attacker intercepts blue:4444’s public key, prime number and generator.
+2.	The Attacker Pretend to be blue:3333 and sends host blue:4444 his own public key, since there is no authentication blue:4444 believes that the public key is from blue:3333.
+3.	Similarly the attacker pretends to be blue:4444 and sends his public key to blue:3333.
+4.	At this point the attacker has gained man in the middle position.
+5.	Both the hosts communicate with the attacker thinking that they are communicating with each other.
+6.	The attacker decrypts messages from blue:4444 and re encrypts them using his shared secret key with blue:3333 and sends them. And vice versa 
+7.	Finally the attacker intercepts the entire communication.

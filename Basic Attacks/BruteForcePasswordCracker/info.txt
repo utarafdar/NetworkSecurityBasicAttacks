@@ -1,0 +1,8 @@
+•Htpasswd files are used when password protecting a website or a directory using HTTP Authentication and Apache’s htaccess files. The htpasswd file contains username in plain text (unencrypted) and a hashed (encrypted) password.
+•The password is hashed using apache’s customised MD5 algorithm. The MD5 algorithm is applied using a random 8 bit salt value. The salt value is the 8 characters following $apr1$ in the encrypted password.
+•To crack the password a dictionary attack should be launched. Following are the steps to crack the password
+1.	Find a suitable dictionary (https://tools.ietf.org/html/rfc3093).
+2.	For each password in the dictionary, encrypt the password using apache’s customised MD5 algorithm with salt as “/pE9u4cQ” (as this was the salt used to encrypt the netsec’s password).
+3.	For each generated hash, compare it with “$apr1$/pE9u4cQ$ZfQfXfZ8NWh2gfFpIx22T0” (as this is the hash generated for netsec’s password)
+4.	The matching hash corresponds to the cracked password.
+5.	The cracked password is cellophane.
